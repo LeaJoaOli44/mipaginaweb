@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Acerca de mí</title>
+  <style>
+    /* ======== ESTILOS CSS ======== */
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #4facfe, #00f2fe);
+      color: white;
+      text-align: center;
+      padding: 30px;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      animation: flotar 2s infinite alternate;
+    }
+
+    @keyframes flotar {
+      from { transform: translateY(0); }
+      to { transform: translateY(10px); }
+    }
+
+    .contenedor {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 15px;
+      padding: 20px;
+      margin: 20px auto;
+      width: 80%;
+      max-width: 500px;
+    }
+
+    input, textarea {
+      width: 90%;
+      padding: 10px;
+      margin: 5px;
+      border: none;
+      border-radius: 8px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #fff;
+      color: #0078ff;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #0078ff;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 🔹 ACÁ VA TU NOMBRE -->
+  <h1>¡Hola! Soy Leandro Joaquín Oliva 👋</h1>
+
+  <!-- 🔹 ACÁ VA TU DESCRIPCIÓN PERSONAL -->
+  <p>
+	Soy  estudiante de 6°3 de la EPET N°14. Me gusta jugar juegos.
+	Mi gmail es leandro.joaquin.oliva@epet14.edu.ar
+  </p>
+
+  <!-- 🔹 FORMULARIO DE CONTACTO -->
+  <div class="contenedor">
+    <h2>Formulario de contacto</h2>
+    <form>
+      <input type="text" placeholder="Tu nombre"><br>
+      <input type="email" placeholder="Tu correo"><br>
+      <textarea rows="4" placeholder="Tu mensaje..."></textarea><br>
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+</body>
+</html>
