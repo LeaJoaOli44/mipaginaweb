@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Frases Motivadoras</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #74ABE2, #5563DE);
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      text-align: center;
+      padding: 40px;
+    }
+
+    h1 {
+      font-size: 2em;
+      animation: aparecer 1.5s ease-in-out;
+    }
+
+    @keyframes aparecer {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    #frase {
+      font-size: 1.5em;
+      margin: 30px auto;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 20px;
+      border-radius: 15px;
+      width: 80%;
+      max-width: 400px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      transition: 0.4s;
+    }
+
+    #frase:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: scale(1.05);
+    }
+
+    button {
+      background-color: #fff;
+      color: #5563DE;
+      font-weight: bold;
+      padding: 10px 25px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #5563DE;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>💡 Consejo del día</h1>
+  <div id="frase">Cargando frase...</div>
+  <button onclick="obtenerFrase()">Actualizar</button>
+
+  <script>
+    async function obtenerFrase() {
+      document.getElementById("frase").textContent = "Actualizando...";
+      try {
+        const respuesta = await fetch("https://api.adviceslip.com/advice");
+        const datos = await respuesta.json();
+        document.getElementById("frase").textContent = `"${datos.slip.advice}"`;
+      } catch (error) {
+        document.getElementById("frase").textContent = "Error al obtener datos 😢";
+      }
+    }
+
+    // Cargar frase inicial al abrir la página
+    obtenerFrase();
+  </script>
+</body>
+</html>
