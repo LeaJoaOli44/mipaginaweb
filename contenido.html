@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Contenido Web Interactivo</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #20232a;
+      color: #61dafb;
+      text-align: center;
+      padding: 40px;
+    }
+
+    h1 {
+      color: #fff;
+    }
+
+    #hora {
+      font-size: 1.5em;
+      margin: 20px 0;
+    }
+
+    button {
+      background-color: #61dafb;
+      color: #20232a;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 20px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #21a1f1;
+    }
+
+    #quiz {
+      margin-top: 30px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 15px;
+      border-radius: 10px;
+      color: #fff;
+    }
+
+    input[type="text"] {
+      padding: 8px;
+      border: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>🌐 Contenido Interactivo</h1>
+
+  <!-- Hora actual -->
+  <p id="hora"></p>
+  <button onclick="cambiarColor()">Cambiar color de fondo</button>
+
+  <!-- Pequeño juego tipo quiz -->
+  <div id="quiz">
+    <h3>Juego rápido 🧠</h3>
+    <p>¿Cuál es la capital de Argentina?</p>
+    <input type="text" id="respuesta" placeholder="Escribí tu respuesta">
+    <button onclick="verificar()">Enviar</button>
+    <p id="resultado"></p>
+  </div>
+
+  <script>
+    // Función para actualizar la hora cada segundo
+    function actualizarHora() {
+      const ahora = new Date();
+      const horaFormateada = ahora.toLocaleTimeString();
+      document.getElementById("hora").textContent = "Hora actual: " + horaFormateada;
+    }
+    setInterval(actualizarHora, 1000);
+    actualizarHora();
+
+    // Función para cambiar color de fondo aleatoriamente
+    function cambiarColor() {
+      const color = "#" + Math.floor(Math.random() * 16777215).toString(16);
+      document.body.style.backgroundColor = color;
+    }
+
+    // Mini juego de preguntas
+    function verificar() {
+      const respuesta = document.getElementById("respuesta").value.trim().toLowerCase();
+      const resultado = document.getElementById("resultado");
+
+      if (respuesta === "buenos aires") {
+        resultado.textContent = "✅ ¡Correcto!";
+        resultado.style.color = "#00ff88";
+      } else if (respuesta === "") {
+        resultado.textContent = "⚠️ Escribí una respuesta.";
+        resultado.style.color = "#ffcc00";
+      } else {
+        resultado.textContent = "❌ Incorrecto, probá otra vez.";
+        resultado.style.color = "#ff5555";
+      }
+    }
+  </script>
+</body>
+</html>
